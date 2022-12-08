@@ -37,16 +37,16 @@ class AnalisisProjectApplicationTests {
 
 	@Test
 	public void Obtiene_una_OfertaLaboral_por_Id_y_compara_el_numero_de_vacante_para_validar_la_ofertaLaboral_Esperada(){
-		OfertaLaboral oferta = Oferta_Repo.findById(1).get();
+		OfertaLaboral oferta = Oferta_Repo.findById(2).get();
 		assertEquals(5, oferta.getNumVacante());
 	}
 
 	@Test
 	public void Modifica_un_atributo_de_la_ofertaLaboral_compara_que_no_sea_igual_al_anterior_valor_del_atributo(){
-		OfertaLaboral oferta = Oferta_Repo.findById(1).get();
-		oferta.setExtensionContrato(5);
+		OfertaLaboral oferta = Oferta_Repo.findById(5).get();
+		oferta.setExtensionContrato(6);
 		Oferta_Repo.save(oferta);
-		assertNotEquals(3,Oferta_Repo.findById(1).get().getExtensionContrato());
+		assertNotEquals(1,Oferta_Repo.findById(5).get().getExtensionContrato());
 	}
 
 
@@ -65,10 +65,10 @@ class AnalisisProjectApplicationTests {
 
 	@Test
 	public void Modifica_un_atributo_de_la_organizacion_y_compara_que_no_sea_igual_al_anterior_valor_del_atributo(){
-		Organizacion organizacion = Organizacion_Repo.findById(1).get();
-		organizacion.setTelefono("22551111");
+		Organizacion organizacion = Organizacion_Repo.findById(3).get();
+		organizacion.setNombre("Ataraxia");
 		Organizacion_Repo.save(organizacion);
-		assertNotEquals("4444444",Organizacion_Repo.findById(1).get().getTelefono());
+		assertNotEquals("Ataraxia CR",Organizacion_Repo.findById(3).get().getNombre());
 	}
 
 
@@ -86,10 +86,10 @@ class AnalisisProjectApplicationTests {
 
 	@Test
 	public void Modifica_un_atributo_del_coordinador_y_compara_que_no_sea_igual_al_anterior_valor_del_atributo(){
-		CoordinadorCarrera coordinadorCarrera = Coordinador_Repo.findById(1).get();
-		coordinadorCarrera.setCorreoPersonal("alvaro@hotmail.com");
+		CoordinadorCarrera coordinadorCarrera = Coordinador_Repo.findById(2).get();
+		coordinadorCarrera.setCorreoPersonal("carlos@gmail.com");
 		Coordinador_Repo.save(coordinadorCarrera);
-		assertNotEquals("alvaro@gmail.com",Coordinador_Repo.findById(1).get().getCorreoPersonal());
+		assertNotEquals("joan1234@hotmail.com",Coordinador_Repo.findById(2).get().getCorreoPersonal());
 	}
 
 
